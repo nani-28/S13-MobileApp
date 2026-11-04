@@ -1,0 +1,11 @@
+{
+  "name": "luna-nails-capture",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "capture": "node capture-escenarios.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.1"
+  }
+}

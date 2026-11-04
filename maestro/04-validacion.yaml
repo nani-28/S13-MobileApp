@@ -1,0 +1,16 @@
+url: http://127.0.0.1:8081
+---
+- launchApp
+- tapOn:
+    id: reset-data
+- assertVisible: Datos listos
+- tapOn:
+    id: role-user
+- tapOn:
+    id: continue-services
+- assertVisible:
+    id: error
+- assertVisible: Elige un servicio
+- assertVisible:
+    id: service-corte
+- takeScreenshot: 04-validacion

@@ -1,0 +1,26 @@
+url: http://127.0.0.1:8081
+---
+- launchApp
+- tapOn:
+    id: reset-data
+- assertVisible: Datos listos
+- tapOn:
+    id: role-user
+- tapOn:
+    id: service-manicure
+- tapOn:
+    id: continue-services
+- tapOn:
+    id: slot-1400
+- tapOn:
+    id: confirm-booking
+- assertVisible: Reserva confirmada
+- tapOn:
+    id: change-role
+- tapOn:
+    id: role-professional
+- assertVisible:
+    id: agenda-list
+- assertVisible: "Ana · Manicure"
+- assertVisible: "14:00"
+- takeScreenshot: 05-agenda-profesional

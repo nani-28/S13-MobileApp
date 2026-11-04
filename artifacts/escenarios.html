@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Salón Lila — escenarios</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #111111;
+        --muted: #6b6b6b;
+        --gold: #111111;
+        --paper: #f4f4f4;
+        --card: #ffffff;
+        --line: #e6e6e6;
+      }
+      body {
+        margin: 0;
+        font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+        background: var(--paper);
+        color: var(--ink);
+      }
+      main {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      h1 {
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin: 0 0 0.4rem;
+      }
+      h2 {
+        margin: 0 0 0.4rem;
+        font-size: 1.45rem;
+      }
+      .kicker {
+        margin: 0;
+        color: var(--gold);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .meta {
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .summary {
+        display: flex;
+        gap: 16px;
+        margin: 28px 0 8px;
+      }
+      .stat {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 14px 18px;
+        min-width: 140px;
+      }
+      .stat strong {
+        display: block;
+        font-size: 1.6rem;
+      }
+      .stat span {
+        color: var(--muted);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 0.85rem;
+      }
+      article {
+        display: grid;
+        grid-template-columns: 1fr 320px;
+        gap: 28px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 24px;
+        margin-top: 22px;
+      }
+      pre {
+        background: #f4f4f4;
+        border: 1px dashed var(--line);
+        border-radius: 12px;
+        padding: 14px;
+        overflow: auto;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+      img {
+        width: 100%;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: #120c0e;
+      }
+      .pass {
+        display: inline-block;
+        background: #111111;
+        color: #ffffff;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        margin-bottom: 8px;
+      }
+      code, a {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.88em;
+      }
+      a {
+        color: var(--gold);
+      }
+      @media (max-width: 760px) {
+        article {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="kicker">Artefacto 1</p>
+      <h1>Escenarios de Salón Lila</h1>
+      <p class="meta">
+        Cada escenario de <a href="../docs/reservas.feature">docs/reservas.feature</a> es un flow de Maestro.
+        La corrida del 7 de octubre de 2026 abrió Chromium contra Expo web
+        (<code>http://127.0.0.1:8081</code>) y pasó 5 de 5 en 1 minuto 1 segundo.
+        El reporte de Maestro está en <a href="maestro-report.html">maestro-report.html</a>.
+      </p>
+      <div class="summary">
+        <div class="stat"><strong>5/5</strong><span>flows pasados</span></div>
+        <div class="stat"><strong>1m 1s</strong><span>Maestro 2.11 · Chromium</span></div>
+      </div>
+
+      <article>
+        <div>
+          <p class="pass">Pasó · 01-catalogo.yaml · 6s</p>
+          <h2>Catálogo de servicios</h2>
+          <p>Ana entra como clienta y ve el menú del salón.</p>
+          <pre>Dado que abro la app como clienta
+Entonces veo el servicio "Corte"
+Y veo el servicio "Coloración"
+Y veo el servicio "Manicure"</pre>
+        </div>
+        <img src="screenshots/01-catalogo.png" alt="Catálogo con corte, coloración y manicure" />
+      </article>
+
+      <article>
+        <div>
+          <p class="pass">Pasó · 02-reserva-exitosa.yaml · 16s</p>
+          <h2>Reserva exitosa</h2>
+          <p>Ana elige corte a las 11:00. La pantalla final muestra la confirmación y la cita.</p>
+          <pre>Cuando elijo el servicio "Corte"
+Y elijo el horario "11:00"
+Y confirmo la cita
+Entonces veo la confirmación de la reserva
+Y en mis citas veo Corte a las 11:00</pre>
+        </div>
+        <img src="screenshots/02-reserva-exitosa.png" alt="Mis citas con corte a las 11:00 y la confirmación" />
+      </article>
+
+      <article>
+        <div>
+          <p class="pass">Pasó · 03-horario-ocupado.yaml · 14s</p>
+          <h2>Horario ya ocupado</h2>
+          <p>El reset deja las 10:00 tomadas por María. Ana no puede confirmar coloración en ese hueco.</p>
+          <pre>Cuando elijo Coloración y el horario 10:00
+Y confirmo la cita
+Entonces veo "Ese horario ya está ocupado"
+Y no veo la confirmación</pre>
+        </div>
+        <img src="screenshots/03-horario-ocupado.png" alt="Error de horario ocupado a las 10:00" />
+      </article>
+
+      <article>
+        <div>
+          <p class="pass">Pasó · 04-validacion.yaml · 7s</p>
+          <h2>Validación sin servicio</h2>
+          <p>Continuar sin elegir deja a Ana en el catálogo y muestra el error.</p>
+          <pre>Cuando continúo sin elegir un servicio
+Entonces veo el error "Elige un servicio"
+Y sigo en el catálogo de servicios</pre>
+        </div>
+        <img src="screenshots/04-validacion.png" alt="Error Elige un servicio sobre el catálogo" />
+      </article>
+
+      <article>
+        <div>
+          <p class="pass">Pasó · 05-agenda-profesional.yaml · 17s</p>
+          <h2>Agenda de la profesional</h2>
+          <p>Ana reserva manicure a las 14:00. Lila abre su calendario y ve esa cita junto a la de María a las 10:00.</p>
+          <pre>Cuando Ana reserva Manicure a las 14:00
+Y cambio al rol de profesional
+Entonces Lila ve a Ana, Manicure, 14:00</pre>
+        </div>
+        <img src="screenshots/05-agenda-profesional.png" alt="Agenda de Lila con María a las 10:00 y Ana a las 14:00" />
+      </article>
+    </main>
+  </body>
+</html>

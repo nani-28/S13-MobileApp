@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Salón Lila",
+    "slug": "salon-lila",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.salonlila.app"
+    },
+    "android": {
+      "package": "com.salonlila.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#FBE8EE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}

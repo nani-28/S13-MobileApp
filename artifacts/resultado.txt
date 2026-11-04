@@ -1,0 +1,14 @@
+Maestro 2.11.0
+plataforma: Web / chromium
+comando: maestro test maestro/ --headless --screen-size 390x844
+app: http://127.0.0.1:8081
+api: http://127.0.0.1:3001
+
+[Passed] 01-catalogo (6s)
+[Passed] 05-agenda-profesional (17s)
+[Passed] 02-reserva-exitosa (16s)
+[Passed] 04-validacion (7s)
+[Passed] 03-horario-ocupado (14s)
+
+5/5 Flows Passed in 1m 1s
+fecha: 2026-10-07 01:54 CST

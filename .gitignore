@@ -1,0 +1,11 @@
+node_modules
+tools/capture/node_modules
+api/data
+dist
+.expo
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+.DS_Store
+maestro/screenshots
+artifacts/maestro-run
